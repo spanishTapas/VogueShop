@@ -16,15 +16,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h52-Rg-zmQ"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-nt-9qj"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-58-b2v">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-58-b2v">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="gxQ-15-1GG"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -35,7 +36,7 @@
                             <constraint firstItem="2Vi-nt-9qj" firstAttribute="top" secondItem="h52-Rg-zmQ" secondAttribute="top" constant="107" id="QaF-a1-8XO"/>
                             <constraint firstItem="yzh-58-b2v" firstAttribute="centerX" secondItem="h52-Rg-zmQ" secondAttribute="centerX" id="ZlZ-0X-Irb"/>
                             <constraint firstItem="yzh-58-b2v" firstAttribute="width" secondItem="h52-Rg-zmQ" secondAttribute="width" multiplier="160:375" priority="900" id="bWp-l2-hH7"/>
-                            <constraint firstItem="h52-Rg-zmQ" firstAttribute="bottom" secondItem="yzh-58-b2v" secondAttribute="bottom" priority="900" constant="44" id="bqU-cL-IEH"/>
+                            <constraint firstItem="h52-Rg-zmQ" firstAttribute="bottom" secondItem="yzh-58-b2v" secondAttribute="bottom" priority="900" constant="50" id="bqU-cL-IEH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h52-Rg-zmQ" secondAttribute="bottom" id="deg-ff-Sf0"/>
                             <constraint firstItem="h52-Rg-zmQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hPc-7m-Q1i"/>
                             <constraint firstAttribute="trailing" secondItem="2Vi-nt-9qj" secondAttribute="trailing" constant="12" id="mz2-jD-0jx"/>
@@ -47,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="h52-Rg-zmQ" id="8aZ-Kb-8lh"/>
+                        <outlet property="loginButton" destination="yzh-58-b2v" id="inV-YK-Wf4"/>
                         <outlet property="vogueStoreImage" destination="2Vi-nt-9qj" id="Yrj-1E-5GD"/>
                     </connections>
                 </viewController>
