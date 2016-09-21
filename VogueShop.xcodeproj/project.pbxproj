@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C7F98C6F1D93213D009FF7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C6E1D93213D009FF7D1 /* main.m */; };
 		C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C711D93213D009FF7D1 /* AppDelegate.m */; };
-		C7F98C751D93213D009FF7D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* ViewController.m */; };
+		C7F98C751D93213D009FF7D1 /* VogueShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */; };
 		C7F98C781D93213D009FF7D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C761D93213D009FF7D1 /* Main.storyboard */; };
 		C7F98C7A1D93213D009FF7D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C791D93213D009FF7D1 /* Assets.xcassets */; };
 		C7F98C7D1D93213D009FF7D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */; };
@@ -20,8 +20,8 @@
 		C7F98C6E1D93213D009FF7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7F98C701D93213D009FF7D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7F98C711D93213D009FF7D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C7F98C731D93213D009FF7D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C7F98C741D93213D009FF7D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C7F98C731D93213D009FF7D1 /* VogueShopLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VogueShopLoginViewController.h; sourceTree = "<group>"; };
+		C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VogueShopLoginViewController.m; sourceTree = "<group>"; };
 		C7F98C771D93213D009FF7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7F98C791D93213D009FF7D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7F98C7C1D93213D009FF7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 			children = (
 				C7F98C701D93213D009FF7D1 /* AppDelegate.h */,
 				C7F98C711D93213D009FF7D1 /* AppDelegate.m */,
-				C7F98C731D93213D009FF7D1 /* ViewController.h */,
-				C7F98C741D93213D009FF7D1 /* ViewController.m */,
+				C7F98C731D93213D009FF7D1 /* VogueShopLoginViewController.h */,
+				C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */,
 				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
 				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
 				C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */,
@@ -150,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F98C751D93213D009FF7D1 /* ViewController.m in Sources */,
+				C7F98C751D93213D009FF7D1 /* VogueShopLoginViewController.m in Sources */,
 				C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */,
 				C7F98C6F1D93213D009FF7D1 /* main.m in Sources */,
 			);
@@ -271,6 +271,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VogueShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WZ.VogueShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,6 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VogueShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WZ.VogueShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";

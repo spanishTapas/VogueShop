@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Vogue Shop Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="VogueShopLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h52-Rg-zmQ"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-nt-9qj"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-58-b2v">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gxQ-15-1GG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h52-Rg-zmQ" secondAttribute="trailing" id="4I2-N0-ELM"/>
+                            <constraint firstItem="h52-Rg-zmQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7Nt-Cd-mBK"/>
+                            <constraint firstItem="2Vi-nt-9qj" firstAttribute="top" secondItem="h52-Rg-zmQ" secondAttribute="top" constant="107" id="QaF-a1-8XO"/>
+                            <constraint firstItem="yzh-58-b2v" firstAttribute="centerX" secondItem="h52-Rg-zmQ" secondAttribute="centerX" id="ZlZ-0X-Irb"/>
+                            <constraint firstItem="yzh-58-b2v" firstAttribute="width" secondItem="h52-Rg-zmQ" secondAttribute="width" multiplier="160:375" priority="900" id="bWp-l2-hH7"/>
+                            <constraint firstItem="h52-Rg-zmQ" firstAttribute="bottom" secondItem="yzh-58-b2v" secondAttribute="bottom" priority="900" constant="44" id="bqU-cL-IEH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h52-Rg-zmQ" secondAttribute="bottom" id="deg-ff-Sf0"/>
+                            <constraint firstItem="h52-Rg-zmQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hPc-7m-Q1i"/>
+                            <constraint firstAttribute="trailing" secondItem="2Vi-nt-9qj" secondAttribute="trailing" constant="12" id="mz2-jD-0jx"/>
+                            <constraint firstItem="2Vi-nt-9qj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="rgD-8i-YhG"/>
+                            <constraint firstItem="2Vi-nt-9qj" firstAttribute="height" secondItem="h52-Rg-zmQ" secondAttribute="height" multiplier="190:647" id="uBD-HX-BOP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="h52-Rg-zmQ" id="8aZ-Kb-8lh"/>
+                        <outlet property="vogueStoreImage" destination="2Vi-nt-9qj" id="Yrj-1E-5GD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="95.802098950524751"/>
         </scene>
     </scenes>
 </document>
