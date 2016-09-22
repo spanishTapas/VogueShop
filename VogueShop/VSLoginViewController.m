@@ -14,7 +14,7 @@
 #import "VSPromptAuthenticationController.h"
 #define LOGIN_BUTTON_TITLE @"Login"
 #define POPOVER_CONTENT_WIDTH self.view.bounds.size.width * 0.67
-#define POPOVER_CONTENT_HEIGHT self.view.bounds.size.height * 0.4
+#define POPOVER_CONTENT_HEIGHT self.view.bounds.size.height * 0.40
 
 @interface VSLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView * backgroundImage;
@@ -64,6 +64,8 @@
     destNav.navigationBarHidden = YES;
     
     [self presentViewController:destNav animated:YES completion:nil];
+    
+    [self performTouchIDAuthentication];
 
 }
 
@@ -74,6 +76,7 @@
 
 # pragma mark - TouchID Authentication
 - (void)performTouchIDAuthentication {
+    
     LAContext * context = [[LAContext alloc] init];
     
     NSError *error = nil;
@@ -83,50 +86,52 @@
                 localizedReason:@"Are you the device owner?"
                           reply:^(BOOL success, NSError *error) {
                               
-                              if (error) {
-                                  
-                                  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                                                  message:@"There was a problem verifying your identity."
-                                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                  
-                                  UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                                         style:UIAlertActionStyleDefault
-                                                                                       handler:^(UIAlertAction * action) {
-                                                                                           [self dismissViewControllerAnimated:YES completion:NULL];
-                                                                                       }];
-                                  [alert addAction:alertAction];
-                                  [self presentViewController:alert animated:YES completion:NULL];
-                                  return;
-                              }
-                              
-                              if (success) {
-                                  
-                                  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Success"
-                                                                                                  message:@"Authentication succeeded."
-                                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                  
-                                  UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                                         style:UIAlertActionStyleDefault
-                                                                                       handler:^(UIAlertAction * action) {
-                                                                                           [self dismissViewControllerAnimated:YES completion:NULL];
-                                                                                       }];
-                                  [alert addAction:alertAction];
-                                  [self presentViewController:alert animated:YES completion:NULL];
-                                  
-                              } else {
-                                  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                                                  message:@"Authentication failed. Please try again."
-                                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                  
-                                  UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                                         style:UIAlertActionStyleDefault
-                                                                                       handler:^(UIAlertAction * action) {
-                                                                                           [self dismissViewControllerAnimated:YES completion:NULL];
-                                                                                       }];
-                                  [alert addAction:alertAction];
-                                  [self presentViewController:alert animated:YES completion:NULL];         }
-                              
-                          }];
+          if (error) {
+              
+              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                              message:@"There was a problem verifying your identity."
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+              
+              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                     style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {
+                                                                       [self dismissViewControllerAnimated:YES completion:NULL];
+                                                                   }];
+              [alert addAction:alertAction];
+              [self presentViewController:alert animated:YES completion:NULL];
+              return;
+          }
+          
+          if (success) {
+              NSLog(@"Authentication succeeded");
+              
+//              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Success"
+//                                                                              message:@"Authentication succeeded."
+//                                                                       preferredStyle:UIAlertControllerStyleAlert];
+//              
+//              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
+//                                                                     style:UIAlertActionStyleDefault
+//                                                                   handler:^(UIAlertAction * action) {
+//                                                                       [self dismissViewControllerAnimated:YES completion:NULL];
+//                                                                   }];
+//              [alert addAction:alertAction];
+//              [self presentViewController:alert animated:YES completion:NULL];
+              
+          }
+          else {
+              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                              message:@"Authentication failed. Please try again."
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+              
+              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                     style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {
+                                                                       [self dismissViewControllerAnimated:YES completion:NULL];
+                                                                   }];
+              [alert addAction:alertAction];
+              [self presentViewController:alert animated:YES completion:NULL];         }
+          
+      }];
         
     } else {
         
