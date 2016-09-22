@@ -63,10 +63,11 @@
     _promptPopover.sourceRect = self.loginButton.frame;
     destNav.navigationBarHidden = YES;
     
-    [self presentViewController:destNav animated:YES completion:nil];
+    [self presentViewController:destNav animated:YES completion:^{
+        [self performTouchIDAuthentication];
+    }];
     
-    [self performTouchIDAuthentication];
-
+    
 }
 
 # pragma mark - UIPopoverPresentationControllerDelegate
@@ -83,30 +84,13 @@
     
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                localizedReason:@"Are you the device owner?"
+                localizedReason:@"Authentication is needed to access your account."
                           reply:^(BOOL success, NSError *error) {
                               
           if (error) {
-              
-              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                              message:@"There was a problem verifying your identity."
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
-              
-              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                     style:UIAlertActionStyleDefault
-                                                                   handler:^(UIAlertAction * action) {
-                                                                       [self dismissViewControllerAnimated:YES completion:NULL];
-                                                                   }];
-              [alert addAction:alertAction];
-              [self presentViewController:alert animated:YES completion:NULL];
-              return;
-          }
-          
-          if (success) {
-              NSLog(@"Authentication succeeded");
-              
-//              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Success"
-//                                                                              message:@"Authentication succeeded."
+              NSLog(@"There was a problem verifying your identity.");
+//              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
+//                                                                              message:@"There was a problem verifying your identity."
 //                                                                       preferredStyle:UIAlertControllerStyleAlert];
 //              
 //              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
@@ -116,9 +100,18 @@
 //                                                                   }];
 //              [alert addAction:alertAction];
 //              [self presentViewController:alert animated:YES completion:NULL];
+              return;
+          }
+          
+          if (success) {
+              NSLog(@"Authentication succeeded");
+              [self dismissViewControllerAnimated:YES completion:NULL];
+
+              
               
           }
           else {
+              NSLog(@"Authentication failed. Please try again.");
               UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                               message:@"Authentication failed. Please try again."
                                                                        preferredStyle:UIAlertControllerStyleAlert];
@@ -134,7 +127,7 @@
       }];
         
     } else {
-        
+        NSLog(@"Your device cannot authenticate using TouchID.");
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                         message:@"Your device cannot authenticate using TouchID."
                                                                  preferredStyle:UIAlertControllerStyleAlert];

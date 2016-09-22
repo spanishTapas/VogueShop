@@ -124,7 +124,7 @@
 				TargetAttributes = {
 					C7F98C691D93213D009FF7D1 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = XA2RWMA8F5;
+						DevelopmentTeam = 8R5SSX8RV5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -279,10 +279,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8R5SSX8RV5;
 				INFOPLIST_FILE = VogueShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WZ.VogueShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WanmingZhang.VogueShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -291,10 +292,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8R5SSX8RV5;
 				INFOPLIST_FILE = VogueShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WZ.VogueShop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WanmingZhang.VogueShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
