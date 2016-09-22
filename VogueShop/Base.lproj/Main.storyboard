@@ -92,10 +92,14 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="95.802098950524751"/>
         </scene>
-        <!--View Controller-->
+        <!--Container Controller-->
         <scene sceneID="fO3-iw-2vU">
             <objects>
-                <viewController storyboardIdentifier="VSContainerViewController" id="r4S-yq-MWl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VSContainerViewController" id="r4S-yq-MWl" customClass="VSContainerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="amL-gN-r1p"/>
+                        <viewControllerLayoutGuide type="bottom" id="FmN-f2-KjY"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IIA-9v-HGU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +145,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rju-hx-X6z" firstAttribute="top" secondItem="IIA-9v-HGU" secondAttribute="top" constant="20" id="5dm-xU-G1g"/>
+                            <constraint firstItem="Rju-hx-X6z" firstAttribute="top" secondItem="amL-gN-r1p" secondAttribute="bottom" constant="20" id="6HL-Hs-86h"/>
                             <constraint firstItem="Rju-hx-X6z" firstAttribute="leading" secondItem="IIA-9v-HGU" secondAttribute="leading" priority="900" constant="20" id="C5D-F0-BZt"/>
                             <constraint firstItem="NEp-ps-8IW" firstAttribute="top" secondItem="UWk-4d-snM" secondAttribute="bottom" constant="8" id="DkV-wZ-x3Q"/>
                             <constraint firstAttribute="trailing" secondItem="ho9-hb-8GP" secondAttribute="trailing" constant="20" id="EIK-sw-Mz7"/>
@@ -181,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtA-Nw-Na6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="94.002998500749626"/>
+            <point key="canvasLocation" x="3750.7246376811595" y="93.750000000000014"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="pEZ-8j-qAb">
@@ -193,25 +197,55 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8E-ZD-w2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735.1999999999998" y="93.553223388305852"/>
+            <point key="canvasLocation" x="4642.0289855072469" y="93.342391304347828"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Image Controller-->
         <scene sceneID="Rgb-nP-N6f">
             <objects>
-                <viewController id="Ks1-u8-KUB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductImageScene" id="Ks1-u8-KUB" customClass="VSProductImageController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C6P-Ls-STV"/>
                         <viewControllerLayoutGuide type="bottom" id="M74-VG-xn2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kd3-1U-UzH">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="269.66666666666669"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="269"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uNI-a5-duA">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="QL5-nS-D26"/>
+                                    <constraint firstAttribute="width" constant="200" id="RzV-ac-VGF"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.68272134090000003" blue="0.47664903879999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uNI-a5-duA" firstAttribute="centerX" secondItem="kd3-1U-UzH" secondAttribute="centerX" id="037-g3-am6"/>
+                            <constraint firstItem="uNI-a5-duA" firstAttribute="centerY" secondItem="kd3-1U-UzH" secondAttribute="centerY" id="bmU-Sk-hB0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QI-UP-IWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735.1999999999998" y="493.8530734632684"/>
+            <point key="canvasLocation" x="4642.0289855072469" y="493.61413043478262"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NbT-oJ-2pe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TYP-fZ-uvJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oyx-KJ-TwK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="r4S-yq-MWl" kind="relationship" relationship="rootViewController" id="C6o-3O-udb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4a-8y-z0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843.4782608695655" y="93.750000000000014"/>
         </scene>
     </scenes>
 </document>
