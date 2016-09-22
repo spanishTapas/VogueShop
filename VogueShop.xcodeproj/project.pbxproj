@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C707DE851D93D8BB00D36EF0 /* VSPromptAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */; };
 		C757B95C1D93C8F0003FCB90 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */; };
 		C7F98C6F1D93213D009FF7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C6E1D93213D009FF7D1 /* main.m */; };
 		C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C711D93213D009FF7D1 /* AppDelegate.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C707DE831D93D8BB00D36EF0 /* VSPromptAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSPromptAuthenticationController.h; sourceTree = "<group>"; };
+		C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSPromptAuthenticationController.m; sourceTree = "<group>"; };
 		C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C7F98C6A1D93213D009FF7D1 /* VogueShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F98C6E1D93213D009FF7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,9 +75,10 @@
 				C7F98C711D93213D009FF7D1 /* AppDelegate.m */,
 				C7F98C731D93213D009FF7D1 /* VSLoginViewController.h */,
 				C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */,
+				C707DE831D93D8BB00D36EF0 /* VSPromptAuthenticationController.h */,
+				C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */,
 				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
 				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
-				C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */,
 				C7F98C7E1D93213D009FF7D1 /* Info.plist */,
 				C7F98C6D1D93213D009FF7D1 /* Supporting Files */,
 			);
@@ -148,7 +152,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F98C7D1D93213D009FF7D1 /* LaunchScreen.storyboard in Resources */,
 				C7F98C7A1D93213D009FF7D1 /* Assets.xcassets in Resources */,
 				C7F98C781D93213D009FF7D1 /* Main.storyboard in Resources */,
 			);
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C707DE851D93D8BB00D36EF0 /* VSPromptAuthenticationController.m in Sources */,
 				C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */,
 				C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */,
 				C7F98C6F1D93213D009FF7D1 /* main.m in Sources */,

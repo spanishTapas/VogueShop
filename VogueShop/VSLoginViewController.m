@@ -11,13 +11,17 @@
 
 #import "VSLoginViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
-
+#import "VSPromptAuthenticationController.h"
 #define LOGIN_BUTTON_TITLE @"Login"
+#define POPOVER_CONTENT_WIDTH self.view.bounds.size.width * 0.67
+#define POPOVER_CONTENT_HEIGHT self.view.bounds.size.height * 0.4
 
 @interface VSLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView * backgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView * vogueStoreImage;
 @property (weak, nonatomic) IBOutlet UIButton * loginButton;
+
+@property(nonatomic,retain) UIPopoverPresentationController * promptPopover;
 
 @end
 
@@ -26,10 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Setup UI of login screen
     [self setupLoginPageAppearance];
 }
 
-// Setup UI of login screen
 - (void)setupLoginPageAppearance {
     self.backgroundImage.image = [UIImage imageNamed:@"Bubble_Background"];
     self.vogueStoreImage.image = [UIImage imageNamed:@"Vogue_Store"];
@@ -45,11 +49,30 @@
 }
 
 - (IBAction)promptToAuthentication:(id)sender {
+    //Customized popover to prompt user for touchID authentication
+    VSPromptAuthenticationController * promptVC = [[VSPromptAuthenticationController alloc] init];
+    UINavigationController * destNav = [[UINavigationController alloc] initWithRootViewController:promptVC];
     
-
+    // Configure the popoverPresentationController
+    promptVC.preferredContentSize = CGSizeMake(POPOVER_CONTENT_WIDTH,POPOVER_CONTENT_HEIGHT);
+    destNav.modalPresentationStyle = UIModalPresentationPopover;
+    _promptPopover = destNav.popoverPresentationController;
+    _promptPopover.permittedArrowDirections = 0; // Remove popover arrow
+    _promptPopover.delegate = self;
+    _promptPopover.sourceView = self.view;
+    _promptPopover.sourceRect = self.loginButton.frame;
+    destNav.navigationBarHidden = YES;
+    
+    [self presentViewController:destNav animated:YES completion:nil];
 
 }
 
+# pragma mark - UIPopoverPresentationControllerDelegate
+- (UIModalPresentationStyle) adaptivePresentationStyleForPresentationController: (UIPresentationController * ) controller {
+    return UIModalPresentationNone;
+}
+
+# pragma mark - TouchID Authentication
 - (void)performTouchIDAuthentication {
     LAContext * context = [[LAContext alloc] init];
     
@@ -120,6 +143,11 @@
         [self presentViewController:alert animated:YES completion:NULL];
         
     }
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {
