@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C757B95C1D93C8F0003FCB90 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */; };
 		C7F98C6F1D93213D009FF7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C6E1D93213D009FF7D1 /* main.m */; };
 		C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C711D93213D009FF7D1 /* AppDelegate.m */; };
-		C7F98C751D93213D009FF7D1 /* VogueShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */; };
+		C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */; };
 		C7F98C781D93213D009FF7D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C761D93213D009FF7D1 /* Main.storyboard */; };
 		C7F98C7A1D93213D009FF7D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C791D93213D009FF7D1 /* Assets.xcassets */; };
-		C7F98C7D1D93213D009FF7D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C7F98C6A1D93213D009FF7D1 /* VogueShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F98C6E1D93213D009FF7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7F98C701D93213D009FF7D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7F98C711D93213D009FF7D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C7F98C731D93213D009FF7D1 /* VogueShopLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VogueShopLoginViewController.h; sourceTree = "<group>"; };
-		C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VogueShopLoginViewController.m; sourceTree = "<group>"; };
+		C7F98C731D93213D009FF7D1 /* VSLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSLoginViewController.h; sourceTree = "<group>"; };
+		C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSLoginViewController.m; sourceTree = "<group>"; };
 		C7F98C771D93213D009FF7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7F98C791D93213D009FF7D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C7F98C7C1D93213D009FF7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F98C7E1D93213D009FF7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C757B95C1D93C8F0003FCB90 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C757B95A1D93C8F0003FCB90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7F98C611D93213D009FF7D1 = {
 			isa = PBXGroup;
 			children = (
 				C7F98C6C1D93213D009FF7D1 /* VogueShop */,
 				C7F98C6B1D93213D009FF7D1 /* Products */,
+				C757B95A1D93C8F0003FCB90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +70,8 @@
 			children = (
 				C7F98C701D93213D009FF7D1 /* AppDelegate.h */,
 				C7F98C711D93213D009FF7D1 /* AppDelegate.m */,
-				C7F98C731D93213D009FF7D1 /* VogueShopLoginViewController.h */,
-				C7F98C741D93213D009FF7D1 /* VogueShopLoginViewController.m */,
+				C7F98C731D93213D009FF7D1 /* VSLoginViewController.h */,
+				C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */,
 				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
 				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
 				C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */,
@@ -110,6 +120,7 @@
 				TargetAttributes = {
 					C7F98C691D93213D009FF7D1 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = XA2RWMA8F5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -150,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F98C751D93213D009FF7D1 /* VogueShopLoginViewController.m in Sources */,
+				C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */,
 				C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */,
 				C7F98C6F1D93213D009FF7D1 /* main.m in Sources */,
 			);
@@ -165,14 +176,6 @@
 				C7F98C771D93213D009FF7D1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C7F98C7B1D93213D009FF7D1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7F98C7C1D93213D009FF7D1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -202,6 +205,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XA2RWMA8F5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -218,7 +222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -249,6 +253,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XA2RWMA8F5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -259,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -309,6 +314,7 @@
 				C7F98C831D93213D009FF7D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
