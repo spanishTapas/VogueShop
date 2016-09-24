@@ -185,12 +185,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtA-Nw-Na6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="99"/>
+            <point key="canvasLocation" x="1245" y="91"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="pEZ-8j-qAb">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Fty-Sv-fOG" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Fty-Sv-fOG" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Ks1-u8-KUB" kind="show" identifier="ShowProductDetails" id="qr5-n0-CX1"/>
                     </connections>
@@ -218,7 +218,6 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.68272134090000003" blue="0.47664903879999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uNI-a5-duA" firstAttribute="centerX" secondItem="kd3-1U-UzH" secondAttribute="centerX" id="037-g3-am6"/>
                             <constraint firstItem="uNI-a5-duA" firstAttribute="centerY" secondItem="kd3-1U-UzH" secondAttribute="centerY" id="bmU-Sk-hB0"/>

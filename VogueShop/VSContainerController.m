@@ -26,11 +26,7 @@
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
     
-    
-    VSProductImageController * imageVC = [self viewControllerWithImage:@""];
-    [self.pageViewController setViewControllers:@[imageVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
-    ;
-    
+    [self updatePageViewControllerDataSource];
 }
 
 - (VSProductImageController *)viewControllerWithImage:(NSString *)productImage {
@@ -39,58 +35,63 @@
     // Image is hard coded for this prototype
     // TODO: Fetch image from server
     productImageVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductImageScene"];
-    
+    productImageVC.imageID = productImage;
     
     return productImageVC;
 }
 
 #pragma mark - UIPageViewControllerDataSource
 
-// For gesture-initiated transitions, the page view controller obtains view controllers via these methods, so use of setViewControllers:direction:animated:completion: is not required.
-//- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-//    
-//}
-//
-//- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-//    
-//}
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    NSInteger currentIndex = [self.pages indexOfObject:viewController];
+    NSInteger previousIndex = (currentIndex - 1) % [self.pages count];
+    
+    return self.pages[previousIndex];
+    
+ 
+}
 
-//- (void)updatePageViewControllerDataSource {
-//    NSArray <NSString *> * documentTypes = [self.session.currentRepair documentsForESignFlow];
-//    NSMutableArray * mutablePages = [[NSMutableArray alloc] init];
-//    
-//    for (NSUInteger index = 0; index < [documentTypes count]; index ++) {
-//        NSString * type = [documentTypes objectAtIndex:index];
-//        
-//        RIWAandTACWebViewController * viewController;
-//        
-//        if ([type isEqualToString:kConfirmationDoc]) {
-//            viewController = [self viewControllerWithDocType:RCWorkDocumentTypeConfirmation];
-//            [mutablePages safeAddObject:viewController];
-//            [self.pageViewController setViewControllers:@[viewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
-//        }
-//        else if ([type isEqualToString:kWorkAuthDoc]) {
-//            viewController = [self viewControllerWithDocType:RCWorkDocumentTypeAuthorization];
-//            [mutablePages safeAddObject:viewController];
-//            [self.pageViewController setViewControllers:@[viewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
-//        }
-//        else if ([type isEqualToString:kLoanerDoc]) {
-//            viewController = [self viewControllerWithDocType:RCWorkDocumentTypeLoaner];
-//            [mutablePages safeAddObject:viewController];
-//        }
-//        else if ([type isEqualToString:kTermsConditionsDoc]) {
-//            viewController = [self viewControllerWithDocType:RCWorkDocumentTypeTermsAndConditions];
-//            [mutablePages safeAddObject:viewController];
-//        }
-//        
-//    }
-//    self.pages = [mutablePages copy];
-//    
-//}
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    NSInteger currentIndex  = [self.pages indexOfObject:viewController];
+    NSInteger nextIndex = ((currentIndex + 1) % [self.pages count]);
+    
+    return self.pages[nextIndex];
+    
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)updatePageViewControllerDataSource {
+    NSMutableArray * mutablePages = [[NSMutableArray alloc] init];
+    
+    // Hard code an array of product images for the prototype
+    // TODO: Determine the logic to display product images
+
+    NSArray * productImages = @[@"Red_Sneaker", @"Black_Heels", @"Fashion_Show", @"Personal_Shopper"];
+   
+    for (NSUInteger index = 0; index < [productImages count]; index ++) {
+        NSString * imageID = [productImages objectAtIndex:index];
+        
+        VSProductImageController * viewController = [self viewControllerWithImage:imageID];
+        [mutablePages addObject:viewController];
+        
+    }
+    
+    self.pages = [mutablePages copy];
+    
+    UIViewController * firstController = [self.pages objectAtIndex:0];
+    [self.pageViewController setViewControllers:@[firstController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+}
+
+// The number of items reflected in the page indicator.
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return [self.pages count];
+}
+
+// The selected item reflected in the page indicator.
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
 }
 
 
