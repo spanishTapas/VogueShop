@@ -69,9 +69,8 @@
 //    [self presentViewController:destNav animated:YES completion:^{
 //        [self performTouchIDAuthentication];
 //    }];
-//    
-    VSContainerController * container = [self.storyboard instantiateViewControllerWithIdentifier:@"VSContainerViewController"];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:container];
+//
+    UINavigationController * navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"VSNavigationViewController"];
     
     navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:navigationController animated:YES completion:NULL];
@@ -98,17 +97,6 @@
                               
           if (error) {
               NSLog(@"There was a problem verifying your identity.");
-//              UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error"
-//                                                                              message:@"There was a problem verifying your identity."
-//                                                                       preferredStyle:UIAlertControllerStyleAlert];
-//              
-//              UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"OK"
-//                                                                     style:UIAlertActionStyleDefault
-//                                                                   handler:^(UIAlertAction * action) {
-//                                                                       [self dismissViewControllerAnimated:YES completion:NULL];
-//                                                                   }];
-//              [alert addAction:alertAction];
-//              [self presentViewController:alert animated:YES completion:NULL];
               return;
           }
           

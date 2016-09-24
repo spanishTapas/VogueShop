@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VSProductImageController : UIViewController
-
+@property (strong, nonatomic) NSString * imageID;
 @end

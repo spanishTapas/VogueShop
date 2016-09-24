@@ -35,8 +35,9 @@
 
 - (VSProductImageController *)viewControllerWithImage:(NSString *)productImage {
     VSProductImageController  * productImageVC;
-    
-    // Create a new view controller and pass suitable data.
+    // Create a product image view controller showing product image
+    // Image is hard coded for this prototype
+    // TODO: Fetch image from server
     productImageVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductImageScene"];
     
     

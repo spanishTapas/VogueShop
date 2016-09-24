@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="95.802098950524751"/>
+            <point key="canvasLocation" x="-546" y="94"/>
         </scene>
         <!--Container Controller-->
         <scene sceneID="fO3-iw-2vU">
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtA-Nw-Na6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3750.7246376811595" y="93.750000000000014"/>
+            <point key="canvasLocation" x="1241" y="99"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="pEZ-8j-qAb">
@@ -197,7 +197,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8E-ZD-w2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4642.0289855072469" y="93.342391304347828"/>
+            <point key="canvasLocation" x="2261" y="-41"/>
         </scene>
         <!--Product Image Controller-->
         <scene sceneID="Rgb-nP-N6f">
@@ -208,7 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="M74-VG-xn2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kd3-1U-UzH">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="269"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="269.33333333333331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uNI-a5-duA">
@@ -224,15 +224,18 @@
                             <constraint firstItem="uNI-a5-duA" firstAttribute="centerY" secondItem="kd3-1U-UzH" secondAttribute="centerY" id="bmU-Sk-hB0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="productImageView" destination="uNI-a5-duA" id="lXj-lv-zVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QI-UP-IWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4642.0289855072469" y="493.61413043478262"/>
+            <point key="canvasLocation" x="2262" y="397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NbT-oJ-2pe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TYP-fZ-uvJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VSNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="TYP-fZ-uvJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oyx-KJ-TwK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -245,7 +248,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4a-8y-z0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2843.4782608695655" y="93.750000000000014"/>
+            <point key="canvasLocation" x="346" y="92"/>
         </scene>
     </scenes>
 </document>
