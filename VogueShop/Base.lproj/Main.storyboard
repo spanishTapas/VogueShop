@@ -122,7 +122,7 @@
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rju-hx-X6z">
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Rju-hx-X6z" secondAttribute="height" multiplier="335:244" priority="750" id="AkL-Fc-0sz"/>
+                                    <constraint firstAttribute="width" secondItem="Rju-hx-X6z" secondAttribute="height" multiplier="325:244" priority="900" id="AkL-Fc-0sz"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="Fty-Sv-fOG" kind="embed" identifier="ContainerEmbedSegue" id="KKK-wP-ZgN"/>
@@ -150,6 +150,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="VyM-gy-vFQ" kind="show" id="xDo-Nj-axZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 new offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-Ly-gBd">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -195,7 +198,7 @@
                             <constraint firstItem="rxR-Xa-spW" firstAttribute="top" secondItem="wEk-6D-dK2" secondAttribute="bottom" constant="8" id="7pr-iq-UT1"/>
                             <constraint firstItem="Rju-hx-X6z" firstAttribute="top" secondItem="amL-gN-r1p" secondAttribute="bottom" constant="20" id="A59-mF-wUm"/>
                             <constraint firstItem="Oc2-9a-s9D" firstAttribute="leading" secondItem="erv-R2-NJz" secondAttribute="trailing" constant="8" id="BnN-wP-QUb"/>
-                            <constraint firstItem="Rju-hx-X6z" firstAttribute="leading" secondItem="IIA-9v-HGU" secondAttribute="leading" priority="900" id="C5D-F0-BZt"/>
+                            <constraint firstItem="Rju-hx-X6z" firstAttribute="leading" secondItem="IIA-9v-HGU" secondAttribute="leading" id="C5D-F0-BZt"/>
                             <constraint firstItem="Ftz-rD-HkX" firstAttribute="trailing" secondItem="NEp-ps-8IW" secondAttribute="trailing" id="DO4-vP-e3k"/>
                             <constraint firstItem="NEp-ps-8IW" firstAttribute="top" secondItem="UWk-4d-snM" secondAttribute="bottom" constant="20" id="DkV-wZ-x3Q"/>
                             <constraint firstItem="Rju-hx-X6z" firstAttribute="height" secondItem="IIA-9v-HGU" secondAttribute="height" multiplier="244:667" id="Ft8-k9-ReR"/>
@@ -221,7 +224,7 @@
                             <constraint firstItem="PCP-Ly-gBd" firstAttribute="top" secondItem="Oc2-9a-s9D" secondAttribute="bottom" constant="8" id="pho-cX-ofY"/>
                             <constraint firstItem="Ftz-rD-HkX" firstAttribute="bottom" secondItem="rxR-Xa-spW" secondAttribute="bottom" constant="12" id="q8g-Nw-aav"/>
                             <constraint firstItem="cYj-h9-7lI" firstAttribute="leading" secondItem="IIA-9v-HGU" secondAttribute="leading" constant="20" id="rJO-uw-6Ld"/>
-                            <constraint firstAttribute="trailing" secondItem="Rju-hx-X6z" secondAttribute="trailing" priority="900" id="svn-aH-pEd"/>
+                            <constraint firstAttribute="trailing" secondItem="Rju-hx-X6z" secondAttribute="trailing" id="svn-aH-pEd"/>
                             <constraint firstItem="erv-R2-NJz" firstAttribute="leading" secondItem="yJx-Yn-mTb" secondAttribute="leading" constant="8" id="ufr-FW-YSz"/>
                             <constraint firstItem="FmN-f2-KjY" firstAttribute="top" secondItem="yJx-Yn-mTb" secondAttribute="bottom" constant="20" id="wkU-kz-x4p"/>
                             <constraint firstItem="yJx-Yn-mTb" firstAttribute="width" secondItem="Ftz-rD-HkX" secondAttribute="width" id="yDL-xV-d9c"/>
@@ -267,7 +270,31 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8E-ZD-w2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2261" y="-41"/>
+            <point key="canvasLocation" x="2863" y="-334"/>
+        </scene>
+        <!--Shopping Collection Controller-->
+        <scene sceneID="FuC-ib-XLx">
+            <objects>
+                <collectionViewController id="VyM-gy-vFQ" customClass="VSShoppingCollectionController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="BQo-BK-LI5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vdU-EP-DH1">
+                            <size key="itemSize" width="154" height="142"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="VyM-gy-vFQ" id="gis-5R-Iwv"/>
+                            <outlet property="delegate" destination="VyM-gy-vFQ" id="3Bp-0Z-FOf"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nO-Z0-XuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="351"/>
         </scene>
         <!--Product Image Controller-->
         <scene sceneID="Rgb-nP-N6f">
@@ -331,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QI-UP-IWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260" y="396.70164917541234"/>
+            <point key="canvasLocation" x="2862" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NbT-oJ-2pe">

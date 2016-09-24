@@ -36,11 +36,11 @@
     
     [self updatePageViewControllerDataSource];
     
-    [self setupNavigationBarAppearance];
+    [self setupNavigationBar];
     [self setupButtons];
 }
 
--(void) setupNavigationBarAppearance {
+-(void) setupNavigationBar {
     //TODO: Implement left and right bar button items.
     
     UIImage * leftIcon = [UIImage imageNamed:@"ListIcon"];

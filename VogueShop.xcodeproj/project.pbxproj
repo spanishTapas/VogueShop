@@ -12,6 +12,8 @@
 		C707DE931D948CE700D36EF0 /* VSProductImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C707DE921D948CE700D36EF0 /* VSProductImageController.m */; };
 		C757B95C1D93C8F0003FCB90 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */; };
 		C7EE1A551D9690A6000D63BA /* UIImage+VSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */; };
+		C7EE1A581D970B39000D63BA /* VSShoppingCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */; };
+		C7EE1A5A1D972570000D63BA /* VSShoppingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */; };
 		C7F98C6F1D93213D009FF7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C6E1D93213D009FF7D1 /* main.m */; };
 		C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C711D93213D009FF7D1 /* AppDelegate.m */; };
 		C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */; };
@@ -29,6 +31,9 @@
 		C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+VSAdditions.h"; sourceTree = "<group>"; };
 		C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VSAdditions.m"; sourceTree = "<group>"; };
+		C7EE1A561D970B39000D63BA /* VSShoppingCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSShoppingCollectionController.h; sourceTree = "<group>"; };
+		C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSShoppingCollectionController.m; sourceTree = "<group>"; };
+		C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSShoppingCollectionCell.xib; sourceTree = "<group>"; };
 		C7F98C6A1D93213D009FF7D1 /* VogueShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F98C6E1D93213D009FF7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7F98C701D93213D009FF7D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,11 +96,14 @@
 				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
 				C707DE911D948CE700D36EF0 /* VSProductImageController.h */,
 				C707DE921D948CE700D36EF0 /* VSProductImageController.m */,
+				C7EE1A561D970B39000D63BA /* VSShoppingCollectionController.h */,
+				C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */,
 				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
 				C7F98C7E1D93213D009FF7D1 /* Info.plist */,
 				C7F98C6D1D93213D009FF7D1 /* Supporting Files */,
 				C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */,
 				C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */,
+				C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */,
 			);
 			path = VogueShop;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F98C7A1D93213D009FF7D1 /* Assets.xcassets in Resources */,
+				C7EE1A5A1D972570000D63BA /* VSShoppingCollectionCell.xib in Resources */,
 				C7F98C781D93213D009FF7D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EE1A581D970B39000D63BA /* VSShoppingCollectionController.m in Sources */,
 				C7EE1A551D9690A6000D63BA /* UIImage+VSAdditions.m in Sources */,
 				C707DE851D93D8BB00D36EF0 /* VSPromptAuthenticationController.m in Sources */,
 				C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */,
