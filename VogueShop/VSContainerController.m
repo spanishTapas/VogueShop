@@ -52,14 +52,14 @@
 
 }
 
-- (VSProductImageController *)viewControllerWithImage:(NSString *)productImage isProduct:(BOOL)product {
+- (VSProductImageController *)viewControllerWithImage:(NSString *)productImage imageType:(ImageType)type {
     VSProductImageController  * productImageVC;
     // Create a product image view controller showing product image
     // Image is hard coded for this prototype
     // TODO: Fetch image from server
     productImageVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductImageScene"];
     productImageVC.imageID = productImage;
-    productImageVC.isProduct = product;
+    productImageVC.imageType = type;
     return productImageVC;
 }
 
@@ -89,10 +89,10 @@
     
     // Hard code an array of product images for the prototype
     // TODO: Determine the logic to display product images
-    VSProductImageController * viewController1 = [self viewControllerWithImage:@"Red_Sneaker" isProduct:YES];
-    VSProductImageController * viewController2 = [self viewControllerWithImage:@"Black_Heels" isProduct:YES];
-    VSProductImageController * viewController3 = [self viewControllerWithImage:@"Fashion_Show" isProduct:NO];
-    VSProductImageController * viewController4 = [self viewControllerWithImage:@"Personal_Shopper" isProduct:NO];
+    VSProductImageController * viewController1 = [self viewControllerWithImage:@"Red_Sneaker" imageType:kVSImageTypeProduct];
+    VSProductImageController * viewController2 = [self viewControllerWithImage:@"Black_Heels" imageType:kVSImageTypeProduct];
+    VSProductImageController * viewController3 = [self viewControllerWithImage:@"Fashion_Show" imageType:kVSImageTypeEvent];
+    VSProductImageController * viewController4 = [self viewControllerWithImage:@"Personal_Shopper" imageType:kVSImageTypeShopper];
     
     self.pages = @[viewController1, viewController2, viewController3, viewController4];
     [self.pageViewController setViewControllers:@[viewController1] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];

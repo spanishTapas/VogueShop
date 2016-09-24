@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, ImageType)
+{
+    kVSImageTypeProduct					= 0,
+    kVSImageTypeEvent,
+    kVSImageTypeShopper,
+};
+
 @interface VSProductImageController : UIViewController
 @property (strong, nonatomic) NSString * imageID;
-@property (assign, nonatomic) BOOL isProduct;
+@property (nonatomic, assign) ImageType imageType;
 @end
