@@ -8,6 +8,7 @@
 
 #import "VSContainerController.h"
 #import "VSProductImageController.h"
+#import "UIImage+VSAdditions.h"
 
 @interface VSContainerController ()
 
@@ -27,16 +28,38 @@
     self.pageViewController.dataSource = self;
     
     [self updatePageViewControllerDataSource];
+    
+    [self setupNavigationBarAppearance];
 }
 
-- (VSProductImageController *)viewControllerWithImage:(NSString *)productImage {
+-(void) setupNavigationBarAppearance {
+    //TODO: Implement left and right bar button items.
+    
+    UIImage * leftIcon = [UIImage imageNamed:@"ListIcon"];
+    
+    UIImage * resizedLeftIcon = [leftIcon resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
+                                                 interpolationQuality:kCGInterpolationHigh];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:resizedLeftIcon style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    UIImage * rightIcon = [UIImage imageNamed:@"UserIcon"];
+    
+    UIImage * resizedRightIcon = [rightIcon resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
+                                                 interpolationQuality:kCGInterpolationHigh];
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:resizedRightIcon style:UIBarButtonItemStylePlain target:self action:nil];
+
+}
+
+- (VSProductImageController *)viewControllerWithImage:(NSString *)productImage isProduct:(BOOL)product {
     VSProductImageController  * productImageVC;
     // Create a product image view controller showing product image
     // Image is hard coded for this prototype
     // TODO: Fetch image from server
     productImageVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductImageScene"];
     productImageVC.imageID = productImage;
-    
+    productImageVC.isProduct = product;
     return productImageVC;
 }
 
@@ -63,25 +86,16 @@
 
 
 - (void)updatePageViewControllerDataSource {
-    NSMutableArray * mutablePages = [[NSMutableArray alloc] init];
     
     // Hard code an array of product images for the prototype
     // TODO: Determine the logic to display product images
-
-    NSArray * productImages = @[@"Red_Sneaker", @"Black_Heels", @"Fashion_Show", @"Personal_Shopper"];
-   
-    for (NSUInteger index = 0; index < [productImages count]; index ++) {
-        NSString * imageID = [productImages objectAtIndex:index];
-        
-        VSProductImageController * viewController = [self viewControllerWithImage:imageID];
-        [mutablePages addObject:viewController];
-        
-    }
+    VSProductImageController * viewController1 = [self viewControllerWithImage:@"Red_Sneaker" isProduct:YES];
+    VSProductImageController * viewController2 = [self viewControllerWithImage:@"Black_Heels" isProduct:YES];
+    VSProductImageController * viewController3 = [self viewControllerWithImage:@"Fashion_Show" isProduct:NO];
+    VSProductImageController * viewController4 = [self viewControllerWithImage:@"Personal_Shopper" isProduct:NO];
     
-    self.pages = [mutablePages copy];
-    
-    UIViewController * firstController = [self.pages objectAtIndex:0];
-    [self.pageViewController setViewControllers:@[firstController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+    self.pages = @[viewController1, viewController2, viewController3, viewController4];
+    [self.pageViewController setViewControllers:@[viewController1] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
 }
 
 // The number of items reflected in the page indicator.

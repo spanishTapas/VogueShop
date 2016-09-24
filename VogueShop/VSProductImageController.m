@@ -11,6 +11,7 @@
 @interface VSProductImageController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView * productImageView;
+@property (weak, nonatomic) IBOutlet UIImageView * eventImageView;
 
 @end
 
@@ -18,8 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // TODO: Remove hard coded logic later
+    if (self.isProduct) {
+        self.productImageView.image = [UIImage imageNamed:self.imageID];
+    } else {
+        self.eventImageView.image = [UIImage imageNamed:self.imageID];
+    }
     
-    self.productImageView.image = [UIImage imageNamed:self.imageID];
 }
 
 

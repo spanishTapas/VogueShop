@@ -10,4 +10,5 @@
 
 @interface VSProductImageController : UIViewController
 @property (strong, nonatomic) NSString * imageID;
+@property (assign, nonatomic) BOOL isProduct;
 @end
