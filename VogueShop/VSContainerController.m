@@ -14,6 +14,13 @@
 
 @property (strong, nonatomic) UIPageViewController * pageViewController;
 @property (strong, nonatomic) NSArray<UIViewController *> * pages;
+@property (weak, nonatomic) IBOutlet UIButton * shopButton;
+
+@property (weak, nonatomic) IBOutlet UIButton * eventButton;
+@property (weak, nonatomic) IBOutlet UIButton * ShopperButton;
+@property (weak, nonatomic) IBOutlet UIImageView * tagImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *loyaltyImageView;
+
 
 @end
 
@@ -30,6 +37,7 @@
     [self updatePageViewControllerDataSource];
     
     [self setupNavigationBarAppearance];
+    [self setupButtons];
 }
 
 -(void) setupNavigationBarAppearance {
@@ -50,6 +58,13 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:resizedRightIcon style:UIBarButtonItemStylePlain target:self action:nil];
 
+}
+
+//  TODO: Remove hard coding.
+- (void) setupButtons {
+    [self.shopButton setTitle:@"Shop" forState:UIControlStateNormal];
+    [self.eventButton setTitle:@"Events" forState:UIControlStateNormal];
+    [self.ShopperButton setTitle:@"Book Personal Shopper" forState:UIControlStateNormal];
 }
 
 - (VSProductImageController *)viewControllerWithImage:(NSString *)productImage imageType:(ImageType)type {
