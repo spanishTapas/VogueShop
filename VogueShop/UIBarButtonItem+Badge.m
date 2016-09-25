@@ -10,16 +10,16 @@
 
 NSString const *UIBarButtonItem_badgeKey = @"UIBarButtonItem_badgeKey";
 
-NSString const *UIBarButtonItem_badgeBGColorKey = @"UIBarButtonItem_badgeBGColorKey";
-NSString const *UIBarButtonItem_badgeTextColorKey = @"UIBarButtonItem_badgeTextColorKey";
-NSString const *UIBarButtonItem_badgeFontKey = @"UIBarButtonItem_badgeFontKey";
-NSString const *UIBarButtonItem_badgePaddingKey = @"UIBarButtonItem_badgePaddingKey";
-NSString const *UIBarButtonItem_badgeMinSizeKey = @"UIBarButtonItem_badgeMinSizeKey";
-NSString const *UIBarButtonItem_badgeOriginXKey = @"UIBarButtonItem_badgeOriginXKey";
-NSString const *UIBarButtonItem_badgeOriginYKey = @"UIBarButtonItem_badgeOriginYKey";
-NSString const *UIBarButtonItem_shouldHideBadgeAtZeroKey = @"UIBarButtonItem_shouldHideBadgeAtZeroKey";
-NSString const *UIBarButtonItem_shouldAnimateBadgeKey = @"UIBarButtonItem_shouldAnimateBadgeKey";
-NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey";
+NSString const * UIBarButtonItem_badgeBGColorKey = @"UIBarButtonItem_badgeBGColorKey";
+NSString const * UIBarButtonItem_badgeTextColorKey = @"UIBarButtonItem_badgeTextColorKey";
+NSString const * UIBarButtonItem_badgeFontKey = @"UIBarButtonItem_badgeFontKey";
+NSString const * UIBarButtonItem_badgePaddingKey = @"UIBarButtonItem_badgePaddingKey";
+NSString const * UIBarButtonItem_badgeMinSizeKey = @"UIBarButtonItem_badgeMinSizeKey";
+NSString const * UIBarButtonItem_badgeOriginXKey = @"UIBarButtonItem_badgeOriginXKey";
+NSString const * UIBarButtonItem_badgeOriginYKey = @"UIBarButtonItem_badgeOriginYKey";
+NSString const * UIBarButtonItem_shouldHideBadgeAtZeroKey = @"UIBarButtonItem_shouldHideBadgeAtZeroKey";
+NSString const * UIBarButtonItem_shouldAnimateBadgeKey = @"UIBarButtonItem_shouldAnimateBadgeKey";
+NSString const * UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey";
 
 @implementation UIBarButtonItem (Badge)
 
@@ -27,14 +27,15 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 @dynamic badgePadding, badgeMinSize, badgeOriginX, badgeOriginY;
 @dynamic shouldHideBadgeAtZero, shouldAnimateBadge;
 
-- (void)badgeInit
+// Setup badge on the upper left corner of associated barButtonItem
+- (void)InitiateBadge
 {
     UIView *superview = nil;
     CGFloat defaultOriginX = 0;
     if (self.customView) {
         superview = self.customView;
-        defaultOriginX = superview.frame.size.width - self.badge.frame.size.width/2;
-        // Avoids badge to be clipped when animating its scale
+        defaultOriginX = superview.frame.size.width - self.badge.frame.size.width / 2;
+        // Avoiding badge to be clipped when animating its scale
         superview.clipsToBounds = NO;
     } else if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
         superview = [(id)self view];
@@ -42,7 +43,6 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
     }
     [superview addSubview:self.badge];
     
-    // Default design initialization
     self.badgeBGColor   = [UIColor redColor];
     self.badgeTextColor = [UIColor whiteColor];
     self.badgeFont      = [UIFont systemFontOfSize:12.0];
@@ -78,7 +78,6 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
     // When the value changes the badge could need to get bigger
     // Calculate expected size to fit new value
     // Use an intermediate label to get expected size thanks to sizeToFit
-    // We don't call sizeToFit on the true label to avoid bad display
     UILabel *frameLabel = [self duplicateLabel:self.badge];
     [frameLabel sizeToFit];
     
@@ -94,12 +93,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
     // Make sure that for small value, the badge will be big enough
     CGFloat minHeight = expectedLabelSize.height;
     
-    // Using a const we make sure the badge respect the minimum size
+    // Using a const to make sure the badge respect the minimum size
     minHeight = (minHeight < self.badgeMinSize) ? self.badgeMinSize : expectedLabelSize.height;
     CGFloat minWidth = expectedLabelSize.width;
     CGFloat padding = self.badgePadding;
     
-    // Using const we make sure the badge doesn't get too smal
+    // Using const to make sure the badge doesn't get too small
     minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width;
     self.badge.layer.masksToBounds = YES;
     self.badge.frame = CGRectMake(self.badgeOriginX, self.badgeOriginY, minWidth + padding, minHeight + padding);
@@ -154,15 +153,15 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 
 #pragma mark - getters/setters
 -(UILabel*) badge {
-    UILabel* lbl = objc_getAssociatedObject(self, &UIBarButtonItem_badgeKey);
-    if(lbl==nil) {
-        lbl = [[UILabel alloc] initWithFrame:CGRectMake(self.badgeOriginX, self.badgeOriginY, 20, 20)];
-        [self setBadge:lbl];
-        [self badgeInit];
-        [self.customView addSubview:lbl];
-        lbl.textAlignment = NSTextAlignmentCenter;
+    UILabel* bagdeLabel = objc_getAssociatedObject(self, &UIBarButtonItem_badgeKey);
+    if(bagdeLabel==nil) {
+        bagdeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.badgeOriginX, self.badgeOriginY, 20, 20)];
+        [self setBadge:bagdeLabel];
+        [self InitiateBadge];
+        [self.customView addSubview:bagdeLabel];
+        bagdeLabel.textAlignment = NSTextAlignmentCenter;
     }
-    return lbl;
+    return bagdeLabel;
 }
 -(void)setBadge:(UILabel *)badgeLabel
 {
@@ -220,12 +219,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 
 // Padding value for the badge
 -(CGFloat) badgePadding {
-    NSNumber *number = objc_getAssociatedObject(self, &UIBarButtonItem_badgePaddingKey);
+    NSNumber * number = objc_getAssociatedObject(self, &UIBarButtonItem_badgePaddingKey);
     return number.floatValue;
 }
 -(void) setBadgePadding:(CGFloat)badgePadding
 {
-    NSNumber *number = [NSNumber numberWithDouble:badgePadding];
+    NSNumber * number = [NSNumber numberWithDouble:badgePadding];
     objc_setAssociatedObject(self, &UIBarButtonItem_badgePaddingKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.badge) {
         [self updateBadgeFrame];
@@ -234,12 +233,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 
 // Minimum size badge to small
 -(CGFloat) badgeMinSize {
-    NSNumber *number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeMinSizeKey);
+    NSNumber * number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeMinSizeKey);
     return number.floatValue;
 }
 -(void) setBadgeMinSize:(CGFloat)badgeMinSize
 {
-    NSNumber *number = [NSNumber numberWithDouble:badgeMinSize];
+    NSNumber * number = [NSNumber numberWithDouble:badgeMinSize];
     objc_setAssociatedObject(self, &UIBarButtonItem_badgeMinSizeKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.badge) {
         [self updateBadgeFrame];
@@ -248,12 +247,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 
 // Values for offseting the badge over the BarButtonItem you picked
 -(CGFloat) badgeOriginX {
-    NSNumber *number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeOriginXKey);
+    NSNumber * number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeOriginXKey);
     return number.floatValue;
 }
 -(void) setBadgeOriginX:(CGFloat)badgeOriginX
 {
-    NSNumber *number = [NSNumber numberWithDouble:badgeOriginX];
+    NSNumber * number = [NSNumber numberWithDouble:badgeOriginX];
     objc_setAssociatedObject(self, &UIBarButtonItem_badgeOriginXKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.badge) {
         [self updateBadgeFrame];
@@ -261,12 +260,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 }
 
 -(CGFloat) badgeOriginY {
-    NSNumber *number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeOriginYKey);
+    NSNumber * number = objc_getAssociatedObject(self, &UIBarButtonItem_badgeOriginYKey);
     return number.floatValue;
 }
 -(void) setBadgeOriginY:(CGFloat)badgeOriginY
 {
-    NSNumber *number = [NSNumber numberWithDouble:badgeOriginY];
+    NSNumber * number = [NSNumber numberWithDouble:badgeOriginY];
     objc_setAssociatedObject(self, &UIBarButtonItem_badgeOriginYKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.badge) {
         [self updateBadgeFrame];
@@ -280,7 +279,7 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 }
 - (void)setShouldHideBadgeAtZero:(BOOL)shouldHideBadgeAtZero
 {
-    NSNumber *number = [NSNumber numberWithBool:shouldHideBadgeAtZero];
+    NSNumber * number = [NSNumber numberWithBool:shouldHideBadgeAtZero];
     objc_setAssociatedObject(self, &UIBarButtonItem_shouldHideBadgeAtZeroKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if(self.badge) {
         [self refreshBadge];
@@ -289,12 +288,12 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
 
 // Badge has a bounce animation when value changes
 -(BOOL) shouldAnimateBadge {
-    NSNumber *number = objc_getAssociatedObject(self, &UIBarButtonItem_shouldAnimateBadgeKey);
+    NSNumber * number = objc_getAssociatedObject(self, &UIBarButtonItem_shouldAnimateBadgeKey);
     return number.boolValue;
 }
 - (void)setShouldAnimateBadge:(BOOL)shouldAnimateBadge
 {
-    NSNumber *number = [NSNumber numberWithBool:shouldAnimateBadge];
+    NSNumber * number = [NSNumber numberWithBool:shouldAnimateBadge];
     objc_setAssociatedObject(self, &UIBarButtonItem_shouldAnimateBadgeKey, number, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if(self.badge) {
         [self refreshBadge];
