@@ -8,6 +8,7 @@
 
 #import "VSShoppingCollectionController.h"
 #import "UIImage+VSAdditions.h"
+#import "UIBarButtonItem+Badge.h"
 #import "VSShoppingCollectionCell.h"
 #import "VSProduct.h"
 
@@ -27,6 +28,7 @@
 
 @property (strong, nonatomic) NSDictionary * sectionData;
 @property (strong, nonatomic) NSArray<VSProduct *> * items;
+@property (assign, nonatomic) NSInteger itemsInCart;
 @end
 
 @implementation VSShoppingCollectionController
@@ -94,6 +96,11 @@ static NSString * const reuseIdentifier = @"CollectionCell";
     
 }
 
+- (IBAction) addToCartButtonPressed:(UIButton *)button {
+    self.itemsInCart ++;
+    
+    self.navigationItem.rightBarButtonItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)self.itemsInCart];
+}
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -122,6 +129,8 @@ static NSString * const reuseIdentifier = @"CollectionCell";
     }
     // Configure the cell
     [self configureProductCollectionCell:(VSShoppingCollectionCell *)cell AtIndexPath:indexPath];
+    // To detect and handle button clicks
+    [cell.addToCartButton addTarget:self action:@selector(addToCartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
