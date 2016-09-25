@@ -53,28 +53,23 @@
 // TODO: To determine whether we need custom prompt popover as iOS provides native prompt.
 - (IBAction)promptToAuthentication:(id)sender {
     //Customized popover to prompt user for touchID authentication
-//    VSPromptAuthenticationController * promptVC = [[VSPromptAuthenticationController alloc] init];
-//    UINavigationController * destNav = [[UINavigationController alloc] initWithRootViewController:promptVC];
-//    
-//    // Configure the popoverPresentationController
-//    promptVC.preferredContentSize = CGSizeMake(POPOVER_CONTENT_WIDTH,POPOVER_CONTENT_HEIGHT);
-//    destNav.modalPresentationStyle = UIModalPresentationPopover;
-//    _promptPopover = destNav.popoverPresentationController;
-//    _promptPopover.permittedArrowDirections = 0; // Remove popover arrow
-//    _promptPopover.delegate = self;
-//    _promptPopover.sourceView = self.view;
-//    _promptPopover.sourceRect = self.loginButton.frame;
-//    destNav.navigationBarHidden = YES;
+    VSPromptAuthenticationController * promptVC = [[VSPromptAuthenticationController alloc] initWithNibName:@"VSPromptAuthenticationController" bundle:nil];
+    //[[VSPromptAuthenticationController alloc] init];
+    UINavigationController * destNav = [[UINavigationController alloc] initWithRootViewController:promptVC];
     
-//    [self presentViewController:destNav animated:YES completion:^{
-//        [self performTouchIDAuthentication];
-//    }];
-//
-    UINavigationController * navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"VSNavigationViewController"];
+    // Configure the popoverPresentationController
+    promptVC.preferredContentSize = CGSizeMake(POPOVER_CONTENT_WIDTH,POPOVER_CONTENT_HEIGHT);
+    destNav.modalPresentationStyle = UIModalPresentationPopover;
+    _promptPopover = destNav.popoverPresentationController;
+    _promptPopover.permittedArrowDirections = 0; // Remove popover arrow
+    _promptPopover.delegate = self;
+    _promptPopover.sourceView = self.view;
+    _promptPopover.sourceRect = self.loginButton.frame;
+    destNav.navigationBarHidden = YES;
     
-    navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:navigationController animated:YES completion:NULL];
-    
+    [self presentViewController:destNav animated:YES completion:^{
+        [self performTouchIDAuthentication];
+    }];
     
 }
 
@@ -103,12 +98,12 @@
           if (success) {
               NSLog(@"Authentication succeeded");
               [self dismissViewControllerAnimated:YES completion:NULL];
-
-              VSContainerController * container = [self.storyboard instantiateViewControllerWithIdentifier:@"VSContainerViewController"];
-              UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:container];
+              
+              UINavigationController * navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"VSNavigationViewController"];
               
               navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
               [self presentViewController:navigationController animated:YES completion:NULL];
+
           }
           else {
               NSLog(@"Authentication failed. Please try again.");
