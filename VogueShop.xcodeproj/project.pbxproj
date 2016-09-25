@@ -72,6 +72,36 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C727E49C1D97B32500B36788 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */,
+				C7EE1A5B1D975DA6000D63BA /* VSShoppingCollectionCell.h */,
+				C7EE1A5C1D975DA6000D63BA /* VSShoppingCollectionCell.m */,
+				C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */,
+				C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C727E49D1D97B37C00B36788 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7F98C731D93213D009FF7D1 /* VSLoginViewController.h */,
+				C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */,
+				C707DE831D93D8BB00D36EF0 /* VSPromptAuthenticationController.h */,
+				C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */,
+				C707DE8E1D94605600D36EF0 /* VSContainerController.h */,
+				C707DE8F1D94605600D36EF0 /* VSContainerController.m */,
+				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
+				C707DE911D948CE700D36EF0 /* VSProductImageController.h */,
+				C707DE921D948CE700D36EF0 /* VSProductImageController.m */,
+				C7EE1A561D970B39000D63BA /* VSShoppingCollectionController.h */,
+				C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		C757B95A1D93C8F0003FCB90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,27 +130,10 @@
 		C7F98C6C1D93213D009FF7D1 /* VogueShop */ = {
 			isa = PBXGroup;
 			children = (
-				C7F98C701D93213D009FF7D1 /* AppDelegate.h */,
-				C7F98C711D93213D009FF7D1 /* AppDelegate.m */,
-				C7F98C731D93213D009FF7D1 /* VSLoginViewController.h */,
-				C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */,
-				C707DE831D93D8BB00D36EF0 /* VSPromptAuthenticationController.h */,
-				C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */,
-				C707DE8E1D94605600D36EF0 /* VSContainerController.h */,
-				C707DE8F1D94605600D36EF0 /* VSContainerController.m */,
-				C7F98C761D93213D009FF7D1 /* Main.storyboard */,
-				C707DE911D948CE700D36EF0 /* VSProductImageController.h */,
-				C707DE921D948CE700D36EF0 /* VSProductImageController.m */,
-				C7EE1A561D970B39000D63BA /* VSShoppingCollectionController.h */,
-				C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */,
-				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
-				C7F98C7E1D93213D009FF7D1 /* Info.plist */,
+				C727E49D1D97B37C00B36788 /* Controller */,
+				C727E49B1D97984300B36788 /* Model */,
+				C727E49C1D97B32500B36788 /* View */,
 				C7F98C6D1D93213D009FF7D1 /* Supporting Files */,
-				C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */,
-				C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */,
-				C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */,
-				C7EE1A5B1D975DA6000D63BA /* VSShoppingCollectionCell.h */,
-				C7EE1A5C1D975DA6000D63BA /* VSShoppingCollectionCell.m */,
 			);
 			path = VogueShop;
 			sourceTree = "<group>";
@@ -128,8 +141,11 @@
 		C7F98C6D1D93213D009FF7D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7F98C701D93213D009FF7D1 /* AppDelegate.h */,
+				C7F98C711D93213D009FF7D1 /* AppDelegate.m */,
+				C7F98C7E1D93213D009FF7D1 /* Info.plist */,
+				C7F98C791D93213D009FF7D1 /* Assets.xcassets */,
 				C7F98C6E1D93213D009FF7D1 /* main.m */,
-				C727E49B1D97984300B36788 /* Model */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
