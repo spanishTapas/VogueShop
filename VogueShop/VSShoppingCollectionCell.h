@@ -12,6 +12,9 @@
 @property (weak, nonatomic) IBOutlet UILabel * descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel * priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView * productImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView * saleTagImage;
+
 @property (weak, nonatomic) IBOutlet UIButton * addToCartButton;
 
 @end

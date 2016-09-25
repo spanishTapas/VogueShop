@@ -18,6 +18,7 @@
 #define SHOE_B @"Black Heels"
 #define DRESS_A  @"Polka Dot Dress"
 #define DRESSS_B @"Floral Dress"
+#define SALE_TAG @"SaleTag"
 
 #define MARGIN 20.0
 
@@ -103,6 +104,7 @@ static NSString * const reuseIdentifier = @"CollectionCell";
     if ([[self.sections objectAtIndex:indexpath.section] isEqualToString:FEATURED_SECTION]) {
         cell.descriptionLabel.text = [NSString stringWithFormat:@"Featured Item: %@", MAGiCIAN_HAT];
         cell.productImage.image = [UIImage imageNamed:MAGiCIAN_HAT];
+        cell.saleTagImage.image = [UIImage imageNamed:SALE_TAG];
         cell.priceLabel.text = [NSString stringWithFormat:@"$ %d", 39];
     }
     
