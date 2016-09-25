@@ -104,7 +104,7 @@
     
     // Hard code an array of product images for the prototype
     // TODO: Determine the logic to display product images
-    VSProductImageController * viewController1 = [self viewControllerWithImage:@"Red_Sneaker" imageType:kVSImageTypeProduct];
+    VSProductImageController * viewController1 = [self viewControllerWithImage:@"Red Sneaker" imageType:kVSImageTypeProduct];
     VSProductImageController * viewController2 = [self viewControllerWithImage:@"Black_Heels" imageType:kVSImageTypeProduct];
     VSProductImageController * viewController3 = [self viewControllerWithImage:@"Fashion_Show" imageType:kVSImageTypeEvent];
     VSProductImageController * viewController4 = [self viewControllerWithImage:@"Personal_Shopper" imageType:kVSImageTypeShopper];

@@ -14,6 +14,7 @@
 		C7EE1A551D9690A6000D63BA /* UIImage+VSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */; };
 		C7EE1A581D970B39000D63BA /* VSShoppingCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */; };
 		C7EE1A5A1D972570000D63BA /* VSShoppingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */; };
+		C7EE1A5D1D975DA6000D63BA /* VSShoppingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A5C1D975DA6000D63BA /* VSShoppingCollectionCell.m */; };
 		C7F98C6F1D93213D009FF7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C6E1D93213D009FF7D1 /* main.m */; };
 		C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C711D93213D009FF7D1 /* AppDelegate.m */; };
 		C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F98C741D93213D009FF7D1 /* VSLoginViewController.m */; };
@@ -34,6 +35,8 @@
 		C7EE1A561D970B39000D63BA /* VSShoppingCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSShoppingCollectionController.h; sourceTree = "<group>"; };
 		C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSShoppingCollectionController.m; sourceTree = "<group>"; };
 		C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSShoppingCollectionCell.xib; sourceTree = "<group>"; };
+		C7EE1A5B1D975DA6000D63BA /* VSShoppingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSShoppingCollectionCell.h; sourceTree = "<group>"; };
+		C7EE1A5C1D975DA6000D63BA /* VSShoppingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSShoppingCollectionCell.m; sourceTree = "<group>"; };
 		C7F98C6A1D93213D009FF7D1 /* VogueShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F98C6E1D93213D009FF7D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7F98C701D93213D009FF7D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */,
 				C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */,
 				C7EE1A591D972570000D63BA /* VSShoppingCollectionCell.xib */,
+				C7EE1A5B1D975DA6000D63BA /* VSShoppingCollectionCell.h */,
+				C7EE1A5C1D975DA6000D63BA /* VSShoppingCollectionCell.m */,
 			);
 			path = VogueShop;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				C7EE1A581D970B39000D63BA /* VSShoppingCollectionController.m in Sources */,
 				C7EE1A551D9690A6000D63BA /* UIImage+VSAdditions.m in Sources */,
 				C707DE851D93D8BB00D36EF0 /* VSPromptAuthenticationController.m in Sources */,
+				C7EE1A5D1D975DA6000D63BA /* VSShoppingCollectionCell.m in Sources */,
 				C7F98C751D93213D009FF7D1 /* VSLoginViewController.m in Sources */,
 				C707DE901D94605600D36EF0 /* VSContainerController.m in Sources */,
 				C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */,

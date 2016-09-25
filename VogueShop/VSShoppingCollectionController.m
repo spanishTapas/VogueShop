@@ -8,10 +8,17 @@
 
 #import "VSShoppingCollectionController.h"
 #import "UIImage+VSAdditions.h"
-//#import "VSShoppingCollectionCell.xib"
+#import "VSShoppingCollectionCell.h"
 
 #define FEATURED_SECTION @"Featured"
 #define COMMON_SECTION @"Common"
+
+#define MAGiCIAN_HAT @"Magician Hat"
+#define SNEAKERS_A @"Red Sneaker"
+#define SHOE_B @"Black Heels"
+#define DRESS_A  @"Polka Dot Dress"
+#define DRESSS_B @"Floral Dress"
+
 #define MARGIN 20.0
 
 @interface VSShoppingCollectionController ()
@@ -31,8 +38,9 @@ static NSString * const reuseIdentifier = @"CollectionCell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[VSShoppingCollectionCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerNib:[UINib nibWithNibName:@"VSShoppingCollectionCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    
     // Do any additional setup after loading the view.
     [self setupNavigationBar];
     [self setupTableviewDataSource];
@@ -41,7 +49,7 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 -(void) setupTableviewDataSource {
     // TODO: setup collecton view data source
     self.sections = @[FEATURED_SECTION, COMMON_SECTION];
-    self.items = @[@"Red_Sneaker", @"Black_Heels", @"PolkaDotDress", @"FloralDress"];
+    self.items = @[SNEAKERS_A, SHOE_B, DRESS_A, DRESSS_B];
 }
 
 -(void) setupNavigationBar {
@@ -76,11 +84,32 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    VSShoppingCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    static BOOL nibLoaded = NO;
+    if (!nibLoaded) {
+        //[[NSBundle mainBundle] loadNibNamed:@"VSShoppingCollectionCell" owner:self options:nil];
+        UINib * nib = [UINib nibWithNibName:@"VSShoppingCollectionCell" bundle: nil];
+        [collectionView registerNib:nib forCellWithReuseIdentifier:reuseIdentifier];
+        nibLoaded = YES;
+    }
     // Configure the cell
-    
+    [self configureProductCollectionCell:(VSShoppingCollectionCell *)cell AtIndexPath:indexPath];
     return cell;
+}
+
+- (void) configureProductCollectionCell:(VSShoppingCollectionCell *)cell AtIndexPath:(NSIndexPath *)indexpath {
+    // TODO: Add a product object, add appropriate properties
+    if ([[self.sections objectAtIndex:indexpath.section] isEqualToString:FEATURED_SECTION]) {
+        cell.descriptionLabel.text = [NSString stringWithFormat:@"Featured Item: %@", MAGiCIAN_HAT];
+        cell.productImage.image = [UIImage imageNamed:MAGiCIAN_HAT];
+        cell.priceLabel.text = [NSString stringWithFormat:@"$ %d", 39];
+    }
+    
+    if ([self.items objectAtIndex:indexpath.row]) {
+        //
+    }
+    
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
