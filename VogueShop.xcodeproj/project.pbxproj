@@ -10,6 +10,7 @@
 		C707DE851D93D8BB00D36EF0 /* VSPromptAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C707DE841D93D8BB00D36EF0 /* VSPromptAuthenticationController.m */; };
 		C707DE901D94605600D36EF0 /* VSContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C707DE8F1D94605600D36EF0 /* VSContainerController.m */; };
 		C707DE931D948CE700D36EF0 /* VSProductImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C707DE921D948CE700D36EF0 /* VSProductImageController.m */; };
+		C727E49A1D97983400B36788 /* VSProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C727E4991D97983400B36788 /* VSProduct.m */; };
 		C757B95C1D93C8F0003FCB90 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */; };
 		C7EE1A551D9690A6000D63BA /* UIImage+VSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */; };
 		C7EE1A581D970B39000D63BA /* VSShoppingCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EE1A571D970B39000D63BA /* VSShoppingCollectionController.m */; };
@@ -29,6 +30,8 @@
 		C707DE8F1D94605600D36EF0 /* VSContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSContainerController.m; sourceTree = "<group>"; };
 		C707DE911D948CE700D36EF0 /* VSProductImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSProductImageController.h; sourceTree = "<group>"; };
 		C707DE921D948CE700D36EF0 /* VSProductImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSProductImageController.m; sourceTree = "<group>"; };
+		C727E4981D97983400B36788 /* VSProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSProduct.h; sourceTree = "<group>"; };
+		C727E4991D97983400B36788 /* VSProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSProduct.m; sourceTree = "<group>"; };
 		C757B95B1D93C8F0003FCB90 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C7EE1A531D9690A6000D63BA /* UIImage+VSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+VSAdditions.h"; sourceTree = "<group>"; };
 		C7EE1A541D9690A6000D63BA /* UIImage+VSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VSAdditions.m"; sourceTree = "<group>"; };
@@ -60,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C727E49B1D97984300B36788 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C727E4981D97983400B36788 /* VSProduct.h */,
+				C727E4991D97983400B36788 /* VSProduct.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		C757B95A1D93C8F0003FCB90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F98C6E1D93213D009FF7D1 /* main.m */,
+				C727E49B1D97984300B36788 /* Model */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +214,7 @@
 				C707DE901D94605600D36EF0 /* VSContainerController.m in Sources */,
 				C7F98C721D93213D009FF7D1 /* AppDelegate.m in Sources */,
 				C707DE931D948CE700D36EF0 /* VSProductImageController.m in Sources */,
+				C727E49A1D97983400B36788 /* VSProduct.m in Sources */,
 				C7F98C6F1D93213D009FF7D1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

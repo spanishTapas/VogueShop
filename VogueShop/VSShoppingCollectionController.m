@@ -9,13 +9,14 @@
 #import "VSShoppingCollectionController.h"
 #import "UIImage+VSAdditions.h"
 #import "VSShoppingCollectionCell.h"
+#import "VSProduct.h"
 
 #define FEATURED_SECTION @"Featured"
 #define COMMON_SECTION @"Common"
 
 #define MAGiCIAN_HAT @"Magician Hat"
 #define SNEAKERS_A @"Red Sneaker"
-#define SHOE_B @"Black Heels"
+#define SHOES_B @"Black_Heels"
 #define DRESS_A  @"Polka Dot Dress"
 #define DRESSS_B @"Floral Dress"
 #define SALE_TAG @"SaleTag"
@@ -24,8 +25,8 @@
 
 @interface VSShoppingCollectionController ()
 
-@property (strong, nonatomic) NSArray<NSString *> * sections;
-@property (strong, nonatomic) NSArray<NSString *> * items;
+@property (strong, nonatomic) NSDictionary * sectionData;
+@property (strong, nonatomic) NSArray<VSProduct *> * items;
 @end
 
 @implementation VSShoppingCollectionController
@@ -49,8 +50,38 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 
 -(void) setupTableviewDataSource {
     // TODO: setup collecton view data source
-    self.sections = @[FEATURED_SECTION, COMMON_SECTION];
-    self.items = @[SNEAKERS_A, SHOE_B, DRESS_A, DRESSS_B];
+    // TODO: get product information through API calls
+    NSMutableDictionary * mutableData = [[NSMutableDictionary alloc] init];
+    VSProduct * featured = [[VSProduct alloc] init];
+    featured.productDescription = MAGiCIAN_HAT;
+    featured.imageID = MAGiCIAN_HAT;
+    featured.price = [NSNumber numberWithFloat:39.0];
+    [mutableData setObject:featured forKey:FEATURED_SECTION];
+    
+    VSProduct * sneakerA = [[VSProduct alloc] init];
+    sneakerA.productDescription = @"Sneakers A";
+    sneakerA.imageID = SNEAKERS_A;
+    sneakerA.price = [NSNumber numberWithDouble:49.95];
+    
+    VSProduct * shoesB = [[VSProduct alloc] init];
+    shoesB.productDescription = @"Shoes B";
+    shoesB.imageID = SHOES_B;
+    shoesB.price = [NSNumber numberWithDouble:79.95];
+    
+    VSProduct * dressA = [[VSProduct alloc] init];
+    dressA.productDescription = @"Dress A";
+    dressA.imageID = DRESS_A;
+    dressA.price = [NSNumber numberWithDouble:99.0];
+    
+    VSProduct * dressB = [[VSProduct alloc] init];
+    dressB.productDescription = @"Dress B";
+    dressB.imageID = DRESSS_B;
+    dressB.price = [NSNumber numberWithDouble:89.0];
+    
+    self.items = @[sneakerA, shoesB, dressA, dressB];
+    [mutableData setObject:self.items forKey:COMMON_SECTION];
+    
+    self.sectionData = [mutableData copy];
 }
 
 -(void) setupNavigationBar {
@@ -65,23 +96,19 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 
 
 #pragma mark <UICollectionViewDataSource>
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-
-    return [self.sections count];
+    NSArray * sections = [self.sectionData allKeys];
+    return [sections count];
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     NSInteger numberOfRows = 1;
+    NSArray * sections = [self.sectionData allKeys];
     
-    if ([[self.sections objectAtIndex:section] isEqualToString:COMMON_SECTION]) {
+    if ([[sections objectAtIndex:section] isEqualToString:COMMON_SECTION]) {
         numberOfRows = [self.items count];
     }
-    
     return numberOfRows;
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,7 +116,6 @@ static NSString * const reuseIdentifier = @"CollectionCell";
     
     static BOOL nibLoaded = NO;
     if (!nibLoaded) {
-        //[[NSBundle mainBundle] loadNibNamed:@"VSShoppingCollectionCell" owner:self options:nil];
         UINib * nib = [UINib nibWithNibName:@"VSShoppingCollectionCell" bundle: nil];
         [collectionView registerNib:nib forCellWithReuseIdentifier:reuseIdentifier];
         nibLoaded = YES;
@@ -100,18 +126,20 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 }
 
 - (void) configureProductCollectionCell:(VSShoppingCollectionCell *)cell AtIndexPath:(NSIndexPath *)indexpath {
-    // TODO: Add a product object, add appropriate properties
-    if ([[self.sections objectAtIndex:indexpath.section] isEqualToString:FEATURED_SECTION]) {
-        cell.descriptionLabel.text = [NSString stringWithFormat:@"Featured Item: %@", MAGiCIAN_HAT];
-        cell.productImage.image = [UIImage imageNamed:MAGiCIAN_HAT];
+    NSArray * sections = [self.sectionData allKeys];
+    if ([[sections objectAtIndex:indexpath.section] isEqualToString:FEATURED_SECTION]) {
+        VSProduct * featured = [self.sectionData objectForKey:FEATURED_SECTION];
+        cell.descriptionLabel.text = [NSString stringWithFormat:@"Featured Item:  %@", featured.productDescription];
+        cell.productImage.image = [UIImage imageNamed:featured.imageID];
         cell.saleTagImage.image = [UIImage imageNamed:SALE_TAG];
-        cell.priceLabel.text = [NSString stringWithFormat:@"$ %d", 39];
+        cell.priceLabel.text = [NSString stringWithFormat:@"$%@", featured.price];
     }
-    
-    if ([self.items objectAtIndex:indexpath.row]) {
-        //
+    else {
+        VSProduct * product = [self.items objectAtIndex:indexpath.row];
+        cell.descriptionLabel.text = product.productDescription;
+        cell.productImage.image = [UIImage imageNamed:product.imageID];
+        cell.priceLabel.text = [NSString stringWithFormat:@"$ %@", product.price];
     }
-    
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
@@ -119,8 +147,8 @@ static NSString * const reuseIdentifier = @"CollectionCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 180;
     CGFloat width = collectionView.frame.size.width - 2 * MARGIN;
-    
-    if ([[self.sections objectAtIndex:indexPath.section] isEqualToString:COMMON_SECTION]) {
+    NSArray * sections = [self.sectionData allKeys];
+    if ([[sections objectAtIndex:indexPath.section] isEqualToString:COMMON_SECTION]) {
         width = (width - MARGIN) / 2;
     }
     return CGSizeMake(width, height);
