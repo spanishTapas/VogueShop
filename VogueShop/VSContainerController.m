@@ -78,13 +78,13 @@
     [self.shopButton setImage:resizedShopIcon forState:UIControlStateNormal];
     [self.shopButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset + 50)];
     
-    UIImage * calendar = [UIImage imageNamed:@"Shopping_Cart"];
+    UIImage * calendar = [UIImage imageNamed:@"Calendar"];
     
     UIImage * resizedCalendar = [calendar resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
                                                  interpolationQuality:kCGInterpolationHigh];
     [self.eventButton setTitle:@"Events" forState:UIControlStateNormal];
     [self.eventButton setImage:resizedCalendar forState:UIControlStateNormal];
-    [self.eventButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset + 50)];
+    [self.eventButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset + 45)];
     
     UIImage * shopBag = [UIImage imageNamed:@"ShopBag"];
     
