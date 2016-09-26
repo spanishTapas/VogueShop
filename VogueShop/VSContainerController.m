@@ -66,9 +66,33 @@
 
 //  TODO: Remove hard coding.
 - (void) setupButtons {
+    // TODO: TO subclass UIButton to get the appropriate UI
+    float leftInset = 20;
+    float rightInset = self.view.bounds.size.width / 2;
+    
+    UIImage * shopIcon = [UIImage imageNamed:@"Shopping_Cart"];
+    
+    UIImage * resizedShopIcon = [shopIcon resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
+                                                   interpolationQuality:kCGInterpolationHigh];
     [self.shopButton setTitle:@"Shop" forState:UIControlStateNormal];
+    [self.shopButton setImage:resizedShopIcon forState:UIControlStateNormal];
+    [self.shopButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset + 50)];
+    
+    UIImage * calendar = [UIImage imageNamed:@"Shopping_Cart"];
+    
+    UIImage * resizedCalendar = [calendar resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
+                                                 interpolationQuality:kCGInterpolationHigh];
     [self.eventButton setTitle:@"Events" forState:UIControlStateNormal];
+    [self.eventButton setImage:resizedCalendar forState:UIControlStateNormal];
+    [self.eventButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset + 50)];
+    
+    UIImage * shopBag = [UIImage imageNamed:@"ShopBag"];
+    
+    UIImage * resizedBag = [shopBag resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(30, 30)
+                                                 interpolationQuality:kCGInterpolationHigh];
     [self.ShopperButton setTitle:@"Book Personal Shopper" forState:UIControlStateNormal];
+    [self.ShopperButton setImage:resizedBag forState:UIControlStateNormal];
+    [self.ShopperButton setImageEdgeInsets:UIEdgeInsetsMake(0, leftInset, 0, rightInset / 2)];
 }
 
 - (VSProductImageController *)viewControllerWithImage:(NSString *)productImage imageType:(ImageType)type {
