@@ -19,9 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton * eventButton;
 @property (weak, nonatomic) IBOutlet UIButton * ShopperButton;
 @property (weak, nonatomic) IBOutlet UIImageView * tagImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *loyaltyImageView;
+@property (weak, nonatomic) IBOutlet UIImageView * loyaltyImageView;
+@property (weak, nonatomic) IBOutlet UILabel * loyaltyPointsLabel;
 
-
+@property (strong, nonatomic) NSData * responseData;
 @end
 
 @implementation VSContainerController
@@ -33,6 +34,9 @@
     // Setup page view controller
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
+    
+    // Fetch loyalty points and display in UI
+    [self fetchLoyaltyPoints];
     
     [self updatePageViewControllerDataSource];
     
@@ -76,6 +80,74 @@
     productImageVC.imageID = productImage;
     productImageVC.imageType = type;
     return productImageVC;
+}
+
+#pragma mark - Network connection
+- (void)fetchLoyaltyPoints {
+    // http://54.191.35.66:8181/pfchang/api/buy username=Michael&grandTotal=0
+    NSString * customerName = @"Michael";
+    NSString * total = @"0";
+    
+    NSString * urlString = @"http://54.191.35.66:8181/pfchang/api/buy";
+    NSString * bodyString = [NSString stringWithFormat:@"username=%@&grandTotal=%@",customerName,total];
+    
+    NSURL * url = [NSURL URLWithString:urlString];
+
+    // Create and configure the request
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+    // Set method
+    [request setHTTPMethod:@"POST"];
+    
+    // Set headers
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    // Set body
+    [request setHTTPBody:[bodyString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Create url connection and fire request
+    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSLog(@"%@", [connection description]);
+}
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    self.responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    self.responseData = data;
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSError * error = nil;
+    NSDictionary * content = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&error]; // TODO: handle errors
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    } else {
+        NSString * points = [content objectForKey:@"rewardPoints"];
+        NSLog(@"%@", [content description]);
+        self.loyaltyPointsLabel.text = [NSString stringWithFormat:@"%@ pts", points];
+    }
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
 }
 
 #pragma mark - UIPageViewControllerDataSource

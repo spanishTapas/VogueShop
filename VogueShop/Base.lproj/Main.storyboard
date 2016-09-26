@@ -183,7 +183,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxR-Xa-spW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" pts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxR-Xa-spW">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -252,6 +252,7 @@
                         <outlet property="ShopperButton" destination="NEp-ps-8IW" id="PZk-cO-Cee"/>
                         <outlet property="eventButton" destination="UWk-4d-snM" id="GWX-X6-LOm"/>
                         <outlet property="loyaltyImageView" destination="dsl-un-Jja" id="gU3-Kb-JMm"/>
+                        <outlet property="loyaltyPointsLabel" destination="rxR-Xa-spW" id="dV4-bf-atj"/>
                         <outlet property="shopButton" destination="cYj-h9-7lI" id="MXV-Yz-H7f"/>
                         <outlet property="tagImageView" destination="erv-R2-NJz" id="UAW-Yi-e2s"/>
                     </connections>
@@ -276,7 +277,7 @@
         <scene sceneID="FuC-ib-XLx">
             <objects>
                 <collectionViewController id="VyM-gy-vFQ" customClass="VSShoppingCollectionController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="BQo-BK-LI5">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BQo-BK-LI5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

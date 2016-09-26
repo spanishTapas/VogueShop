@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VSContainerController : UIViewController <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface VSContainerController : UIViewController <UIPageViewControllerDelegate, UIPageViewControllerDataSource, NSURLConnectionDelegate>
 
 @end
