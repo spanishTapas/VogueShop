@@ -147,7 +147,7 @@ static NSString * const reuseIdentifier = @"CollectionCell";
         VSProduct * product = [self.items objectAtIndex:indexpath.row];
         cell.descriptionLabel.text = product.productDescription;
         cell.productImage.image = [UIImage imageNamed:product.imageID];
-        cell.priceLabel.text = [NSString stringWithFormat:@"$ %@", product.price];
+        cell.priceLabel.text = [NSString stringWithFormat:@"$%@", product.price];
     }
 }
 
