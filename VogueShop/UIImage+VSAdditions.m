@@ -9,6 +9,30 @@
 #import "UIImage+VSAdditions.h"
 
 @implementation UIImage (VSAdditions)
+// Returns a copy of this image that is tinted with color.
+- (UIImage *) tintWithColor:(UIColor *)color
+{
+    CGImageRef imageToTint = self.CGImage;
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
+    CGRect bounds = CGRectMake(0, 0, width, height);
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bitmapContext = CGBitmapContextCreate(NULL, width, height, 8, 0, colorSpace, kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
+    CGContextClipToMask(bitmapContext, bounds, imageToTint);
+    CGContextSetFillColorWithColor(bitmapContext, color.CGColor);
+    CGContextFillRect(bitmapContext, bounds);
+    
+    CGImageRef cImage = CGBitmapContextCreateImage(bitmapContext);
+    UIImage * tintedImage = [UIImage imageWithCGImage:cImage];
+    
+    CGContextRelease(bitmapContext);
+    CGColorSpaceRelease(colorSpace);
+    CGImageRelease(cImage);
+    
+    return tintedImage;
+}
+
 // Resizes the image according to the given content mode, taking into account the image's orientation
 - (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds

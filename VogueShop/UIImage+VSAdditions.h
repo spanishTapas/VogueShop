@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (VSAdditions)
+
+- (UIImage *) tintWithColor:(UIColor *)color;
+
 - (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality;

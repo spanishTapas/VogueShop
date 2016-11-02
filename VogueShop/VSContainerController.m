@@ -35,6 +35,9 @@
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
     
+    UIImage * loyalty = [UIImage imageNamed:@"Loyalty"];
+    self.loyaltyImageView.image = loyalty;
+    
     // Fetch loyalty points and display in UI
     [self fetchLoyaltyPoints];
     
