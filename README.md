@@ -1,5 +1,5 @@
-# WellsFargoCodingTest
-This is a Wells Fargo interview coding test. 
+# VogueShop
+This is an interview coding test. 
 
 Below are the directions: 
 
@@ -8,7 +8,6 @@ Below are the directions: 
 * Properly comment your code
 * Use Keynote to get proper measurements/sizes/alignment for interface elements
    * Measurements are generally 2x what they should be in the storyboard or code
-   * The app should properly resize for different phone sizes
 
 * Use IonIcons for icons
    * https://ionicons.com
